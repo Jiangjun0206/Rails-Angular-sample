@@ -1,0 +1,9 @@
+<%= form_for([@post	, Comment.new], remote: true) do |f| %>	Your comment:<br>
+	<%= f.text_area :body, size: '50*30' %><br>
+	<%= f.submit "Leave Comment" %>
+<% end %>
+
+
+
+
+

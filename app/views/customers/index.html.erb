@@ -1,0 +1,48 @@
+<header>
+	<h1 class="h2">Customer Search</h1>
+</header>
+<article ng-app="customers" ng-controller="CustemerSearchController">
+	<section class="search-form">
+		<form>
+			<div class="input-group input-group-lg">
+				<label for="keywords" class="sr-only">Keywords</label>
+				<input type="text" name="keywords" class="form-control input-lg" placeholder="First Name, Last Name, or Email Address" ng-model="keywords">
+				<span class="input-group-btn">
+				<button class="btn btn-primary btn-lg" ng-click="search(keywords)">
+				Find Customers
+				</button>
+				</span>
+			</div>
+		</form>
+		
+	</section>
+
+	<section class="search-results">
+		<header>
+			<h1 class="h3">Results</h1>
+		</header>
+		<%= render partial: "pager", locals: { keywords: @keywords, page: @page } %>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+				<th>Joined</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @customers.each do |customer| %>
+					<tr>
+					<td><%= customer.first_name %></td>
+					<td><%= customer.last_name %></td>
+					<td><%= customer.email %></td>
+					<td><%= l customer.created_at.to_date %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<%= render partial: "pager", locals: { keywords: @keywords, page: @page } %>
+
+	</section>
+</article>

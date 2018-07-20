@@ -1,0 +1,12 @@
+<div style="float: right;">	
+	<a class="revious  nav-item <%= page == 0 ? 'disabled' : '' %>">
+		<%= link_to_if page > 0, "&larr; Previous".html_safe,
+		customers_path(keywords: keywords, page: page - 1) %>
+	</a>&nbsp;&nbsp;&nbsp;
+	 <a class="next nav-item">
+		<%= link_to "Next &rarr;".html_safe,
+		customers_path(keywords: keywords, page: page + 1) %>
+	</a>
+</div>
+
+

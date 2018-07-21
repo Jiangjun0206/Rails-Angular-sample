@@ -1,5 +1,7 @@
 <header>
 	<h1 class="h2">Customer Search</h1>
+	<%= link_to 'dashboard', root_path %>
+
 </header>
 <article ng-app="customers" ng-controller="CustemerSearchController">
 	<section class="search-form">
@@ -14,35 +16,36 @@
 				</span>
 			</div>
 		</form>
+		<h1 class="searchedFor" ng-if="searchedFor">
+	 
+			<small>Searched for:</small> {{searchedFor}}
 		
+		
+		</h1>
+
 	</section>
 
 	<section class="search-results">
 		<header>
 			<h1 class="h3">Results</h1>
 		</header>
-		<%= render partial: "pager", locals: { keywords: @keywords, page: @page } %>
-		<table class="table table-striped">
-			<thead>
-				<tr>
-				<th>First Name</th>
-				<th>Last Name</th>
-				<th>Email</th>
-				<th>Joined</th>
-				</tr>
-			</thead>
-			<tbody>
-				<% @customers.each do |customer| %>
-					<tr>
-					<td><%= customer.first_name %></td>
-					<td><%= customer.last_name %></td>
-					<td><%= customer.email %></td>
-					<td><%= l customer.created_at.to_date %></td>
-					</tr>
-				<% end %>
-			</tbody>
-		</table>
-		<%= render partial: "pager", locals: { keywords: @keywords, page: @page } %>
-
+	
+		<ol class="list-group">
+		 	<li class="list-group-item clearfix" ng-repeat="customer in customers">
+				<h3 class="pull-right">
+				<small class="text-uppercase">Joined</small>
+				{{ customer.created_at | date }}
+						</h3>
+				<h2 class="h3"> {{ customer.first_name }} {{ customer.last_name }}
+				<small>{{ customer.username }}</small>
+				</h2>
+				<h4>{{ customer.email }}</h4>
+			</li>
+		</ol>
+		
 	</section>
+	<%= render partial: "pager", locals: { keywords: @keywords, page: @page } %>
 </article>
+<script>
+
+</script>

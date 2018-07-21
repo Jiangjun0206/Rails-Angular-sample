@@ -48,3 +48,14 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'bower-rails'
 gem 'faker'
+
+group :development, :test do
+	gem "rspec-rails", '~> 3.0'
+end
+
+gem "angular-rails-templates"
+gem "sprockets", "~> 2.0"
+
+
+
+

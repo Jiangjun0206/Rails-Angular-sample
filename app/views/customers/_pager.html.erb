@@ -1,12 +1,10 @@
-<div style="float: right;">	
-	<a class="revious  nav-item <%= page == 0 ? 'disabled' : '' %>">
-		<%= link_to_if page > 0, "&larr; Previous".html_safe,
-		customers_path(keywords: keywords, page: page - 1) %>
-	</a>&nbsp;&nbsp;&nbsp;
-	 <a class="next nav-item">
-		<%= link_to "Next &rarr;".html_safe,
-		customers_path(keywords: keywords, page: page + 1) %>
-	</a>
+<div style="">	
+	<span class="previous">
+		<a href="" ng-click="previousPage()">&larr; Previous</a>
+	</span>&nbsp;&nbsp;&nbsp;
+	 <span class="next">
+	 	<a href="" ng-click="nextPage()">Next &rarr;</a>
+	</span>
 </div>
 
 
